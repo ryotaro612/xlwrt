@@ -10,6 +10,7 @@ def to_row_num(row_alpha):
         i+=1
     return row
 
+# Deprecated
 def to_row_alph(row_num):
     l = row_num
     third = l // pow(26,2)
@@ -33,3 +34,4 @@ import csv
 lines = [ l for l in csv.reader(sys.stdin.readlines())]
 row_siz=len(lines)
 col_siz=len(lines[0])
+
