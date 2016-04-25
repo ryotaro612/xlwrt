@@ -18,7 +18,8 @@ def to_col_num(col_alpha):
 
 def parse_args():
     import argparse
-    parser = argparse.ArgumentParser(description='Writes csv read from standard input to a excel file.')
+    parser = argparse.ArgumentParser(
+        description='Reads csv from stdin and writes it to a excel file.')
     parser.add_argument('--top_left_cell','-c', nargs=1, metavar='A1')
     parser.add_argument('--xlsx','-x', nargs=1, metavar='excel_file.xlsx')
     parser.add_argument('--sheet','-s', nargs=1, metavar='sheet_name')
@@ -47,5 +48,6 @@ if __name__ == '__main__':
                          for r in range(l_row, l_row+row_siz)
                          for c in range(l_col, l_col+col_siz)]:
         val = lines[txt_r][txt_c]
-        sheet.cell(row=cell_r, column=cell_c).value=int(val) if val.isdigit() else val
+        sheet.cell(
+            row=cell_r, column=cell_c).value=int(val) if val.isdigit() else val
     wb.save(args.xlsx[0])
